@@ -6,9 +6,56 @@ package Classes;
  */
 public class Pessoa {
     //Atributos da classe//
-    String nome;
-    int qtdFilhos, qtdIrmaos;
-    String[] nomeFilhos= new String[20];
+    private String nome;
+    private int qtdFilhos, qtdIrmaos;
+    private String[] nomeFilhos= new String[20];
+    private String cpf;
+    
+    /* METODO CONSTRUTOR*/
+    public Pessoa(String nome){
+        this.nome= "Sr." + nome;
+    }
+    
+    public Pessoa(String nome, String cpf) {
+        this(nome); /*chama o construtor*/
+        this.cpf = cpf;
+    }
+    
+    
+    /********** METODO SETTER********/
+    public void setCpf(String cpf){
+        if (this.cpf==null)
+       /*veriica se o cpf é nulo*/
+        this.cpf=cpf;
+ 
+    }
+    public String getCpf(){
+        return this.cpf;
+    }
+    
+    public void setQtdFilhos(){
+        this.qtdFilhos=qtdFilhos;
+    }
+    
+    public int getQtdFilhos(){
+        return this.qtdFilhos;
+    }
+    
+    public void setQtdIrmaos(){
+        this.qtdIrmaos=qtdIrmaos;
+    }
+    
+    public int getQtdIrmaos(){
+        return this.qtdIrmaos;
+    }
+    
+    public void setNomeFilhos(){
+        this.nomeFilhos=nomeFilhos;
+    }
+    
+    public String[] getNomeFilhos(){
+        return this.nomeFilhos;
+    }
     
     //Método "Apresentar", remponde com o Nome concatenado com a quantidade de filhos.
     //
