@@ -12,7 +12,7 @@ public class ProjeitoAula01 {
     public static void main(String[] args) {
     Pessoa pai;
     pai = new Pessoa("Robson","12345");
-    pai.nome="Robson";
+    pai.="Robson";
     pai.qtdFilhos=2;
     pai.qtdIrmaos=3;
     

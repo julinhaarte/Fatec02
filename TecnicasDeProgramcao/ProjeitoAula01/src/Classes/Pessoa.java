@@ -57,6 +57,15 @@ public class Pessoa {
         return this.nomeFilhos;
     }
     
+    public void setNome(){
+        this.nome=nome;
+    }   
+    public String getNome(){
+    return this.nome;
+    
+    
+    }
+    
     //Método "Apresentar", remponde com o Nome concatenado com a quantidade de filhos.
     //
    public String Apresentar(){
