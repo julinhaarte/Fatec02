@@ -13,10 +13,13 @@ public class PilhaVetor {
     }
         
     //Métodos
-    public void empilhar(String entrada){
+    public String empilhar(String entrada){
         if(verificaPilhaCheia()==false){
         vetorPilha[registraTopo]=entrada;
         registraTopo++;}
+        
+        return "A pilha já está cheia";
+        
     }
     
     public String desempilha(){
