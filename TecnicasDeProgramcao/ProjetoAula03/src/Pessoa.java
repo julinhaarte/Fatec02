@@ -102,5 +102,10 @@ public String filhosListados (){
     return filhos;
     }
 
-
+public String ArvoreGenealogica(){
+if (mae==null)
+  return this.nome; 
+else
+    return mae.ArvoreGenealogica()+"->"+nome; 
+}
 }
