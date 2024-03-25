@@ -1,0 +1,178 @@
+/*Exercício 1*/
+create table Tbl_Clientes
+(idCliente int identity(1,1) not null,
+nomeCliente varchar(50) not null,
+emailCliente varchar(100) not null,
+telClinete varchar(15) not null,
+constraint PK_Clientes Primary Key (idCliente)
+)
+
+/*Exercício 2*/
+insert into Tbl_Clientes
+values
+('João Silva', 'joao@email.com', '(11) 1234-5678')
+
+/*Exercício  3*/
+insert into Tbl_Clientes
+values
+('Peter Parker', 'peter@marvel.com', '12 34567890'),
+('Bruce Wayne', 'bruce@dc.com', '98 76543210'),
+('Diana Prince', 'diana@dc.com', '45 61237890'),
+('Clark Kent', 'clark@dc.com', '78 94561230'),
+('Natasha Romanoff', 'natasha@marvel.com', '36 92581470'),
+('Tony Stark', 'tony@marvel.com', '95 13574680'),
+('Steve Rogers', 'steve@marvel.com', '14 72583690'),
+('Carol Danvers', 'carol@marvel.com', '25 83691470'),
+('Barry Allen', 'barry@dc.com', '36 91472580'),
+('Peter Quill', 'peter@marvel.com', '12 31231234');
+
+/*Exercício  4*/
+update Tbl_Clientes
+set telefoneCli = '(11) 8765-4321'
+where idCli = '1'
+
+/*Exercício 5*/
+create table Tbl_Produtos
+(
+idProd int identity(1,1) not null,
+nomeProd varchar(50) not null,
+precoProd decimal(7,2) not null,
+estoqueProd int not null,
+constraint PK_Produtos Primary Key (idProd)
+)
+
+/*Exercício 6*/
+insert into Tbl_Produtos
+values
+('Camiseta', '29.99', '100')
+
+/*Exercício 7*/
+insert into Tbl_Produtos
+values
+('Tênis', 799.99, 256),
+('Fones de Ouvido Bluetooth', 59.99, 128),
+('Notebook SuperFast', 1299.99, 85),
+('Mouse Gamer RGB', 49.99, 312),
+('Teclado Mecânico', 89.99, 198),
+('Câmera de Segurança Wi-Fi', 129.99, 174),
+('Smart TV 4K', 599.99, 327),
+('Impressora Multifuncional', 199.99, 213),
+('Console de Video Game', 399.99, 167),
+('Tablet Android', 299.99, 201);
+
+/*Exercício 8*/
+update Tbl_Produtos
+set percoProd = '39.99'
+where idProd = '1'
+
+/*Exercício 9*/
+create table Tbl_Pedidos
+(
+idPedido int identity(1,1) not null,
+idCliente int not null,
+idProduto int not null,
+qtdPedido int not null,
+dataPedido Date not null,
+constraint PK_Pedidos Primary Key (idPedido),
+constraint FK_Cli_Pedido Foreign Key(idCliente) references Tbl_Clientes(idCliente),
+constraint FK_Prod_Pedido Foreign Key(idProduto) references Tbl_Produtos(idProd)
+)
+
+/*Exercício 10*/
+insert into Tbl_Pedidos
+values
+('1', '1', '2', GETDATE())
+
+/*Exercício 11*/
+insert into Tbl_Pedidos
+values
+('2', '2', '3', GETDATE()+1), 
+('3', '3', '2', GETDATE()+2), 
+('4', '4', '5', GETDATE()+3),
+('5', '5', '1', GETDATE()+10), 
+('6', '6', '8', GETDATE()+4), 
+('7', '7', '4', GETDATE()+5),
+('8', '8', '2', GETDATE()+6), 
+('9', '9', '3', GETDATE()+7), 
+('10', '10', '7', GETDATE()+8),
+('11', '11', '9', GETDATE()+9)
+
+/*Exercício 12*/
+update Tbl_Pedidos
+set qtdPedido = '3'
+where idPedido = '1'
+
+/*Exercício 13*/
+create table Tbl_Funcionarios
+(
+idFunc int identity(1,1) not null,
+nomeFunc varchar(50) not null,
+cargoFunc varchar(50) not null,
+salarioFunc decimal(7,2) not null,
+constraint PK_Funcionario Primary Key (idFunc)
+)
+
+/*Exercício 14*/
+insert into Tbl_Funcionarios
+values
+('Maria Santos', 'Gerente', '5000')
+
+/*Exercício 15*/
+update Tbl_Funcionarios
+set Salario_Func = '6000'
+where ID_Func = '1'
+
+/*Exercício 16*/
+insert into Tbl_Funcionarios
+values
+('Jon Snow', 'Guardião da Noite', 4500.00),
+('Daenerys Targaryen', 'Rainha dos Dragões', 4000.00),
+('Tyrion Lannister', 'Mão da Rainha', 5500.00),
+('Arya Stark', 'Assassina', 6800.00),
+('Sansa Stark', 'Lady de Winterfell', 4700.00),
+('Jaime Lannister', 'Cavaleiro', 5200.00),
+('Cersei Lannister', 'Rainha', 5800.00),
+('Bran Stark', 'Corvo de Três Olhos', 5100.00),
+('Sandor Clegane', 'Cão de Caça', 4900.00),
+('Petyr Baelish', 'Senhor Protector', 5300.00);
+
+/*Exercício 17*/
+create table Tbl_Vendas
+(
+idVenda int identity(1,1) not null,
+idProd int not null,
+qtdVenda int not null,
+valorTotal decimal(7,2),
+dataVenda Date,
+constraint PK_Vendas Primary Key (idVenda),
+constraint FK_Prod_Venda Foreign Key(idProd) references Tbl_Produtos(idProd)
+)
+
+/*Exercício 18*/
+insert into Tbl_Vendas
+values
+('1', '2', '79.98', GETDATE())
+
+/*Exercício 19*/
+insert into Tbl_Vendas
+values
+('2', '2', '11.98', GETDATE()+1), 
+('3', '4', '559.96', GETDATE()+2), 
+('4', '1', '369.99', GETDATE()+3),
+('5', '3', '149.97', GETDATE()+4), 
+('6', '10', '699.90', GETDATE()+5), 
+('7', '2', '159.98', GETDATE()+6),
+('8', '6', '119.94', GETDATE()+7), 
+('9', '2', '59.98', GETDATE()+8), 
+('10', '1', '129.99', GETDATE()+9),
+('11', '2', '799.98', GETDATE()+10)
+
+/*Exercício 20*/
+delete from Tbl_Vendas
+where idVenda = '1'
+
+select * from Tbl_Clientes
+select * from Tbl_Produtos
+select * from Tbl_Pedidos
+select * from Tbl_Funcionarios
+select * from Tbl_Vendas
